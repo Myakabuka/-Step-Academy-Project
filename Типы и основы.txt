@@ -1,0 +1,240 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Codding____2__16._07._17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(1 + " " + 2 + " " + 3);
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine(5 + "\n" + 10 + "\n" + 21);
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Input cantimeters: ");
+            double cantimeters = Int32.Parse(Console.ReadLine());
+            int meter = 100;
+
+            Console.WriteLine("We have " + cantimeters / meter + " meters in there cantimeters.");
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            int dayPoint = 234, week = 7;
+
+            Console.WriteLine(dayPoint / week + " weeks left from this day");
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Input the 2 numeral number: ");
+            int inputNumber = Int32.Parse(Console.ReadLine());
+
+            int decade = inputNumber / 10, numeral = inputNumber % 10;
+
+            if (decade >= 10)
+            {
+                Console.WriteLine("Error! This number have more than 2 numeral");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("We have " + decade + " decades in this number, and " + numeral + " numerals");
+                Console.WriteLine("Where is the summ of this numeral equals " + (decade + numeral) + " and op. is " + decade * numeral);
+                Console.WriteLine("Press \'Enter\' to continue...");
+                Console.ReadLine();
+            }
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            bool checkA = true, checkB = false, checkC = false;
+
+            if (checkA||checkB)
+            {
+                Console.WriteLine("One of the parametrs A&B is true");
+            }
+            else
+            {
+                if (checkA && checkB)
+                {
+                    Console.WriteLine("A&B parametrs is true");
+                }
+                else
+                {
+                    if(checkB||checkC)
+                    {
+                        Console.WriteLine("One of the parametrs B&C is true");
+                    }
+                }
+            }
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Input the radius of circle: ");
+            double radius = Double.Parse(Console.ReadLine());
+            double circleArea = Math.PI * (radius * radius);
+            Console.WriteLine("Input one of the square's side: ");
+            int squareSide = Int32.Parse(Console.ReadLine());
+            int squareArea = squareSide * squareSide;
+
+            if(circleArea>squareArea)
+            {
+                Console.WriteLine("The circle's Area is bigger than square's");
+            }
+            else
+            {
+                if(squareArea==circleArea)
+                {
+                    Console.WriteLine("Square's Area equals circle's");
+                }
+                else
+                {
+                    Console.WriteLine("The square's Area is bigger than circle's");
+                }
+            }
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Input the weight of first material: ");
+            double firstWeight = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Input the scope of first material: ");
+            double firstScope = Double.Parse(Console.ReadLine());
+
+            double firstDesity = firstWeight / firstScope;
+
+            Console.WriteLine("Input the weight of second material: ");
+            double secondWeight = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Input the scope of second material: ");
+            double secondScope = Double.Parse(Console.ReadLine());
+
+            double secondDesity = secondWeight / secondScope;
+
+            if(firstDesity>secondDesity)
+            {
+                Console.WriteLine("Desity of fisrt material is bigger than second");
+            }
+            else
+            {
+                if(firstDesity==secondDesity)
+                {
+                    Console.WriteLine("Both desity is equals");
+                }
+                else
+                {
+                    Console.WriteLine("Desity of second material is bigger than first");
+                }
+            }
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            Console.WriteLine("Input the resist of first circuit: ");
+            double firstResist = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Input the voltage of first circuit: ");
+            double firstVoltage = Double.Parse(Console.ReadLine());
+
+            double firstStrenght = firstVoltage / firstResist;
+
+            Console.WriteLine("Input the resist of second circuit: ");
+            double secondResist = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Input the voltage of second circuit: ");
+            double secondVoltage = Double.Parse(Console.ReadLine());
+
+            double secondStrenght = secondVoltage / secondResist;
+
+            if (firstStrenght > secondStrenght)
+            {
+                Console.WriteLine("Strenght of fisrt circuit is bigger than second");
+            }
+            else
+            {
+                if (firstStrenght == secondStrenght)
+                {
+                    Console.WriteLine("Both strenght is equals");
+                }
+                else
+                {
+                    Console.WriteLine("Strenght of second circuit is bigger than first");
+                }
+            }
+
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+
+            for(int i=20;i<=35;++i)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("Input the first (any) number (number must be bigger than 10): ");
+            int firstInputNumber = Int32.Parse(Console.ReadLine());
+
+            if(firstInputNumber<=10)
+            {
+                Console.WriteLine("Error! Number less or equals than 10");
+            }
+            else
+            {
+                for(int i=10;i<=firstInputNumber;++i)
+                {
+                    Console.WriteLine(i * i);
+                }
+            }
+
+            Console.WriteLine("Input the second (any) number (number must be less than 50): ");
+            int secondInputNumber = Int32.Parse(Console.ReadLine());
+
+            if(secondInputNumber>=50)
+            {
+                Console.WriteLine("Error! Number is bigger or equals than 50");
+            }
+            else
+            {
+                for(int i=secondInputNumber;i<=50;++i)
+                {
+                    Console.WriteLine(i * i * i);
+                }
+            }
+
+            Console.WriteLine("Input third any number: ");
+            int thirdInputNumber = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Input fourth anu number, it must be bigger than third: ");
+            int fourthInputNumber = Int32.Parse(Console.ReadLine());
+
+            if (thirdInputNumber >= fourthInputNumber) 
+            {
+                Console.WriteLine("Error! Third number is bigger or equals than fourth");
+            }
+            else
+            {
+                for(int i=thirdInputNumber;i<fourthInputNumber;++i)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            Console.WriteLine("Press \'Enter\' to continue...");
+            Console.ReadLine();
+        }
+    }
+}
