@@ -1,0 +1,164 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//Большую часть заданий сделала в день, когда мы прошли массивы, так что вместо TryParse везде просто Parse и нет
+//отлова исключений. Проще говоря, чтобы программы работали, пользователь должен вводить именно то, что просят ввести.
+//В дальнейших доамашних заданиях это исправлено.
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool checkForPoint = true;
+            int spaceCount = 0;
+
+            for (; checkForPoint;)
+            {
+                Console.Clear();
+                Console.WriteLine("Введите один символ (введите точку для завершения работы программы): ");
+                string checkWord = Console.ReadLine();
+
+                if (checkWord.Length > 1)
+                {
+                    Console.WriteLine("Необходимо ввести всего один символ. Попробуйте еще раз.");
+                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить...");
+                    Console.ReadLine();
+                    continue;
+                }
+
+                if (checkWord.Contains(" "))
+                {
+                    ++spaceCount;
+                }
+
+                if (checkWord.Contains("."))
+                {
+                    Console.WriteLine("Вы ввели " + spaceCount + " пробелов.");
+                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.ReadLine();
+                    checkForPoint = false;
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Введите шестизначное число: ");
+            int busTicket;
+            bool tryParse = Int32.TryParse(Console.ReadLine(), out busTicket);
+
+            string checkTicket = busTicket.ToString();
+            if (checkTicket.Length != 6)
+            {
+                Console.WriteLine("Вы ввели не шестизначное число.");
+                Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                Console.ReadLine();
+            }
+            else
+            {
+                int hundredThousand = busTicket / 100000;
+                int decadeThousand = busTicket % 100000 / 10000;
+                int pointThousand = busTicket % 10000 / 1000;
+                int hundred = busTicket % 1000 / 100;
+                int decade = busTicket % 100 / 10;
+                int point = busTicket % 10;
+                int firstPart = hundredThousand + decadeThousand + pointThousand, secondPart = hundred + decade + point;
+                if (firstPart == secondPart)
+                {
+                    Console.WriteLine("Это счастливое число.");
+                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Это не счастливое число.");
+                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.ReadLine();
+                }
+            }
+
+            Console.Clear();
+            bool checkCycle = true;
+            for (; checkCycle;)
+            {
+                Console.Clear();
+                Console.WriteLine("Введите один символ (введите точку для завершения работы программы): ");
+                string checkWord = Console.ReadLine();
+                byte[] wordAscii = Encoding.ASCII.GetBytes(checkWord);
+
+                if (wordAscii[0] >= 65 && wordAscii[0] <= 90)
+                {
+                    wordAscii[0] += 32;
+                    checkWord = Encoding.ASCII.GetString(wordAscii);
+                    Console.WriteLine("Преобразованная буква - " + checkWord);
+                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    if (wordAscii[0] > 90 && wordAscii[0] <= 122)
+                    {
+                        wordAscii[0] -= 32;
+                        checkWord = Encoding.ASCII.GetString(wordAscii);
+                        Console.WriteLine("Преобразованная буква - " + checkWord);
+                        Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        if (wordAscii[0] == 46)
+                        {
+                            Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                            checkCycle = false;
+                            Console.ReadLine();
+                        }
+                    }
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Введите два числа (первое должно быть меньше второго): ");
+            int firstNumber, secondNumber;
+            tryParse = Int32.TryParse(Console.ReadLine(), out firstNumber);
+            tryParse = Int32.TryParse(Console.ReadLine(), out secondNumber);
+            if (secondNumber < firstNumber)
+            {
+                Console.WriteLine("Второе число должно быть больше первого.");
+            }
+            else
+            {
+                for (int i = firstNumber; i <= secondNumber; ++i)
+                {
+                    for (int j = 0; j < i; ++j)
+                    {
+                        Console.Write(i + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+            Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Введите число (оно должно быть больше 0): ");
+            int notReverseNumber;
+            string reverseNumber="";
+            tryParse = Int32.TryParse(Console.ReadLine(), out notReverseNumber);
+
+            string reverseNumberLength = notReverseNumber.ToString();
+
+            for(int i=0;i<reverseNumberLength.Length;++i)
+            {
+                reverseNumber += notReverseNumber % 10;
+                notReverseNumber /= 10;
+            }
+
+            Console.WriteLine(reverseNumber);
+            Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+            Console.ReadLine();
+        }
+    }
+}
