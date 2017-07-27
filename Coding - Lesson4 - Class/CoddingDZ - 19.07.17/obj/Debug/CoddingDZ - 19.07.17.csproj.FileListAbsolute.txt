@@ -1,0 +1,12 @@
+c:\users\arys\documents\visual studio 2017\Projects\CoddingDZ - 19.07.17\CoddingDZ - 19.07.17\bin\Debug\CoddingDZ - 19.07.17.exe.config
+c:\users\arys\documents\visual studio 2017\Projects\CoddingDZ - 19.07.17\CoddingDZ - 19.07.17\bin\Debug\CoddingDZ - 19.07.17.exe
+c:\users\arys\documents\visual studio 2017\Projects\CoddingDZ - 19.07.17\CoddingDZ - 19.07.17\bin\Debug\CoddingDZ - 19.07.17.pdb
+c:\users\arys\documents\visual studio 2017\Projects\CoddingDZ - 19.07.17\CoddingDZ - 19.07.17\obj\Debug\CoddingDZ - 19.07.17.csprojResolveAssemblyReference.cache
+c:\users\arys\documents\visual studio 2017\Projects\CoddingDZ - 19.07.17\CoddingDZ - 19.07.17\obj\Debug\CoddingDZ - 19.07.17.exe
+c:\users\arys\documents\visual studio 2017\Projects\CoddingDZ - 19.07.17\CoddingDZ - 19.07.17\obj\Debug\CoddingDZ - 19.07.17.pdb
+C:\Users\Arys\Documents\Visual Studio 2017\Projects\Coding - Lesson4 - Class\CoddingDZ - 19.07.17\bin\Debug\CoddingDZ - 19.07.17.exe.config
+C:\Users\Arys\Documents\Visual Studio 2017\Projects\Coding - Lesson4 - Class\CoddingDZ - 19.07.17\bin\Debug\CoddingDZ - 19.07.17.exe
+C:\Users\Arys\Documents\Visual Studio 2017\Projects\Coding - Lesson4 - Class\CoddingDZ - 19.07.17\bin\Debug\CoddingDZ - 19.07.17.pdb
+C:\Users\Arys\Documents\Visual Studio 2017\Projects\Coding - Lesson4 - Class\CoddingDZ - 19.07.17\obj\Debug\CoddingDZ - 19.07.17.csprojResolveAssemblyReference.cache
+C:\Users\Arys\Documents\Visual Studio 2017\Projects\Coding - Lesson4 - Class\CoddingDZ - 19.07.17\obj\Debug\CoddingDZ - 19.07.17.exe
+C:\Users\Arys\Documents\Visual Studio 2017\Projects\Coding - Lesson4 - Class\CoddingDZ - 19.07.17\obj\Debug\CoddingDZ - 19.07.17.pdb
