@@ -1,0 +1,345 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//Большую часть заданий сделала в день, когда мы прошли массивы, так что вместо TryParse везде просто Parse и нет
+//отлова исключений. Проще говоря, чтобы программы работали, пользователь должен вводить именно то, что просят ввести.
+//В дальнейших заданиях это исправлено.
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] firstArrayA = new int[5];
+            double[,] secondArrayB = new double[3, 4];
+            Random rand = new Random();
+
+            for (int i = 0; i < firstArrayA.Length; ++i)
+            {
+                Console.WriteLine("Input your " + i + "-th elements: ");
+                firstArrayA[i] = Int32.Parse(Console.ReadLine());
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < firstArrayA.Length; ++i)
+            {
+                Console.Write(i + "-th elements is " + firstArrayA[i] + "|");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            for (int i = 0; i < secondArrayB.GetLength(0); ++i)
+            {
+                for (int j = 0; j < secondArrayB.GetLength(1); ++j)
+                {
+                    secondArrayB[i, j] = rand.Next(1, 1000) / (double)10;
+                    Console.Write("B[" + i + "][" + j + "] = " + secondArrayB[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            double maxElem = firstArrayA[0];
+            double minElem = firstArrayA[0];
+            double summArrays = 0;
+            double opArrays = 1;
+            int summArrayA = 0;
+            double summArrayB = 0;
+
+            for (int i = 0; i < firstArrayA.Length; ++i)
+            {
+                if (firstArrayA[i] > maxElem)
+                {
+                    maxElem = firstArrayA[i];
+                }
+                if (firstArrayA[i] < minElem)
+                {
+                    minElem = firstArrayA[i];
+                }
+                if (i % 2 == 0)
+                {
+                    summArrayA += firstArrayA[i];
+                }
+                summArrays += firstArrayA[i];
+                opArrays *= firstArrayA[i];
+            }
+            for (int i = 0; i < secondArrayB.GetLength(0); ++i)
+            {
+                for (int j = 0; j < secondArrayB.GetLength(1); ++j)
+                {
+                    if (secondArrayB[i, j] > maxElem)
+                    {
+                        maxElem = secondArrayB[i, j];
+                    }
+                    if (secondArrayB[i, j] < minElem)
+                    {
+                        minElem = secondArrayB[i, j];
+                    }
+                    if (i % 2 != 0 && j + 1 < secondArrayB.GetLength(1))
+                    {
+                        summArrayB += secondArrayB[j, i];
+                    }
+                    summArrays += secondArrayB[i, j];
+                    opArrays *= secondArrayB[i, j];
+                }
+            }
+
+            Console.WriteLine("The biggest element it is " + maxElem);
+            Console.WriteLine("The lowest element it is " + minElem);
+            Console.WriteLine("The summ of both arrays is " + summArrays);
+            Console.WriteLine("The op of both arrays is " + opArrays);
+            Console.WriteLine("The summ of all even elements first's array " + summArrayA);
+            Console.WriteLine("The op of all not even columns second's array " + opArrays);
+
+            Console.WriteLine("Press \"Enter\" to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("Input size of third array: ");
+            int thirdArraySize = Int32.Parse(Console.ReadLine());
+            int[] thirdArray = new int[thirdArraySize];
+
+            for (int i = 0; i < thirdArraySize; ++i)
+            {
+                Console.WriteLine("Input your " + i + "-th elements: ");
+                thirdArray[i] = Int32.Parse(Console.ReadLine());
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Input size of fourth array: ");
+            int fourthArraySize = Int32.Parse(Console.ReadLine());
+            int[] fourthArray = new int[fourthArraySize];
+
+            for (int i = 0; i < fourthArraySize; ++i)
+            {
+                Console.WriteLine("Input your " + i + "-th elements: ");
+                fourthArray[i] = Int32.Parse(Console.ReadLine());
+            }
+            Console.WriteLine();
+
+            int sixthArraySize = 0;
+            string checkAllArray = "";
+
+            for (int i = 0; i < thirdArraySize; ++i)
+            {
+                bool checkArrays = true;
+                if (checkAllArray.Contains(thirdArray[i].ToString()))
+                {
+                    ;
+                }
+                else
+                {
+                    for (int j = 0; j < fourthArraySize && checkArrays; ++j)
+                    {
+                        if (thirdArray[i] == fourthArray[j])
+                        {
+                            ++sixthArraySize;
+                            checkArrays = false;
+                        }
+                    }
+                    checkAllArray += thirdArray[i] + " ";
+                }
+            }
+
+
+            checkAllArray = "";
+            int[] sixthArray = new int[sixthArraySize];
+            int x = 0;
+
+            for (int i = 0; i < thirdArraySize; ++i)
+            {
+                bool checkArrays = true;
+                if (checkAllArray.Contains(thirdArray[i].ToString()))
+                {
+                    ;
+                }
+                else
+                {
+                    for (int j = 0; j < fourthArraySize && checkArrays; ++j)
+                    {
+                        if (thirdArray[i] == fourthArray[j])
+                        {
+                            sixthArray[x] = thirdArray[i];
+                            checkArrays = false;
+                            ++x;
+                        }
+                    }
+                    checkAllArray += thirdArray[i] + " ";
+                }
+            }
+
+            for (int i = 0; i < sixthArraySize; ++i)
+            {
+                Console.Write("Sixth[" + i + "]" + sixthArray[i] + "\t");
+            }
+
+            Console.WriteLine("Press \"Enter\" to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("Input any word: ");
+            string palindromWord = Console.ReadLine();
+            bool palindromCheck = true;
+
+            for (int i = 0, j = palindromWord.Length - 1; i < j; i++, j--)
+            {
+                if (palindromWord[i] != palindromWord[j])
+                {
+                    palindromCheck = false;
+                    Console.WriteLine("This word is not palindrom");
+                }
+            }
+
+            if (palindromCheck)
+            {
+                Console.WriteLine("This word is palindrom");
+            }
+
+            Console.WriteLine("Press \"Enter\" to continue...");
+            Console.ReadLine();
+
+            Console.WriteLine("Input any words: ");
+            string checkWord = Console.ReadLine();
+            int wordsCount = 1;
+
+            if (checkWord == "" || checkWord == " ")
+            {
+                wordsCount = 0;
+            }
+            else
+            {
+                if (checkWord.IndexOf(" ") == -1)
+                {
+                    ;
+                }
+                else
+                {
+                    wordsCount = 0;
+                    checkWord = checkWord.TrimStart();
+                    for (; checkWord.IndexOf(" ") != -1;)
+                    {
+                        checkWord = checkWord.Remove(checkWord.IndexOf(" "), 1);
+                        ++wordsCount;
+                    }
+                    if (checkWord.IndexOf("!") != -1 || checkWord.IndexOf(".") != -1 || checkWord.IndexOf("?") != -1)
+                    {
+                        ++wordsCount;
+                    }
+                }
+            }
+
+            Console.WriteLine("We have " + wordsCount + " words.");
+            Console.WriteLine("Press \"Enter\" to continue...");
+            Console.ReadLine();
+
+            int[,] lastArray = new int[5, 5];
+
+            for (int i = 0; i < lastArray.GetLength(0); ++i)
+            {
+                for (int j = 0; j < lastArray.GetLength(1); ++j)
+                {
+                    lastArray[i, j] = rand.Next(-100, 100);
+                    Console.Write(lastArray[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            int lastArrayMax = lastArray[0, 0];
+            int maxIPosition = 0;
+            int maxJPosition = 0;
+            int lastArrayMin = lastArray[0, 0];
+            int minIPosition = 0;
+            int minJPosition = 0;
+
+            for (int i = 0; i < lastArray.GetLength(0); ++i)
+            {
+                for (int j = 0; j < lastArray.GetLength(1); ++j)
+                {
+                    if (lastArray[i, j] > lastArrayMax)
+                    {
+                        lastArrayMax = lastArray[i, j];
+                        maxIPosition = i;
+                        maxJPosition = j;
+                    }
+                    if (lastArray[i, j] < lastArrayMin)
+                    {
+                        lastArrayMin = lastArray[i, j];
+                        minIPosition = i;
+                        minJPosition = j;
+                    }
+                }
+            }
+
+
+            Console.WriteLine("MAX" + lastArrayMax);
+            Console.WriteLine("MIN" + lastArrayMin);
+
+            if (maxIPosition <= minIPosition)
+            {
+                if (maxIPosition == minIPosition)
+                {
+                    int temp = maxJPosition;
+                    maxJPosition = minJPosition;
+                    minJPosition = temp;
+                }
+                else
+                {
+                    int temp = maxIPosition;
+                    maxIPosition = minIPosition;
+                    minIPosition = temp;
+                    temp = maxJPosition;
+                    maxJPosition = minJPosition;
+                    minJPosition = temp;
+                }
+            }
+
+            for (int i = minIPosition; i <= maxIPosition; ++i)
+            {
+                if (minIPosition == maxIPosition)
+                {
+                    for (int j = minJPosition; j <= maxJPosition; ++j)
+                    {
+                        Console.Write("LA[" + i + "][" + j + "] = " + lastArray[i, j] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                else
+                {
+                    if (i == maxIPosition)
+                    {
+                        for (int j = 0; j <= maxJPosition; ++j)
+                        {
+                            Console.Write("LA[" + i + "][" + j + "] = " + lastArray[i, j] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        if (i == minIPosition)
+                        {
+                            for (int j = minJPosition; j < lastArray.GetLength(1); ++j)
+
+                            {
+                                Console.Write("LA[" + i + "][" + j + "] = " + lastArray[i, j] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            for (int j = 0; j < lastArray.GetLength(1); ++j)
+
+                            {
+                                Console.Write("LA[" + i + "][" + j + "] = " + lastArray[i, j] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Press \"Enter\" to continue...");
+            Console.ReadLine();
+        }
+    }
+}
