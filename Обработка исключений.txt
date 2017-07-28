@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Console.WriteLine("Введите адрес веб-сайта: ");
+                string webName = Console.ReadLine();
+                throw new SystemException(webName);
+            }
+            catch(Exception error)
+            {
+                Console.WriteLine("Введен несуществующий сайт. " + error.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Для завершения программы нажмите \"Enter\"...");
+                Console.ReadLine();
+            }
+
+            int[] testArray = new int[5];
+
+            try
+            {
+                for (int i = 0; i <= testArray.Length; ++i)
+                {
+                    testArray[i] = i + 1;
+                }
+            }
+            catch(Exception error)
+            {
+                Console.WriteLine("Ошибка! - " + error.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Обработка эллементов массива завершенна. ");
+                Console.WriteLine("Для завершения программы нажмите \"Enter\"...");
+                Console.ReadLine();
+            }
+        }
+    }
+}
