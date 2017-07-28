@@ -4,10 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//Большую часть заданий сделала в день, когда мы прошли массивы, так что вместо TryParse везде просто Parse и нет
-//отлова исключений. Проще говоря, чтобы программы работали, пользователь должен вводить именно то, что просят ввести.
-//В дальнейших доамашних заданиях это исправлено.
-
 namespace ConsoleApp1
 {
     class Program
@@ -20,13 +16,13 @@ namespace ConsoleApp1
             for (; checkForPoint;)
             {
                 Console.Clear();
-                Console.WriteLine("Введите один символ (введите точку для завершения работы программы): ");
+                Console.WriteLine("Г‚ГўГҐГ¤ГЁГІГҐ Г®Г¤ГЁГ­ Г±ГЁГ¬ГўГ®Г« (ГўГўГҐГ¤ГЁГІГҐ ГІГ®Г·ГЄГі Г¤Г«Гї Г§Г ГўГҐГ°ГёГҐГ­ГЁГї Г°Г ГЎГ®ГІГ» ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»): ");
                 string checkWord = Console.ReadLine();
 
                 if (checkWord.Length > 1)
                 {
-                    Console.WriteLine("Необходимо ввести всего один символ. Попробуйте еще раз.");
-                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить...");
+                    Console.WriteLine("ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГўГўГҐГ±ГІГЁ ГўГ±ГҐГЈГ® Г®Г¤ГЁГ­ Г±ГЁГ¬ГўГ®Г«. ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ ГҐГ№ГҐ Г°Г Г§.");
+                    Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј...");
                     Console.ReadLine();
                     continue;
                 }
@@ -38,23 +34,23 @@ namespace ConsoleApp1
 
                 if (checkWord.Contains("."))
                 {
-                    Console.WriteLine("Вы ввели " + spaceCount + " пробелов.");
-                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.WriteLine("Г‚Г» ГўГўГҐГ«ГЁ " + spaceCount + " ГЇГ°Г®ГЎГҐГ«Г®Гў.");
+                    Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
                     Console.ReadLine();
                     checkForPoint = false;
                 }
             }
 
             Console.Clear();
-            Console.WriteLine("Введите шестизначное число: ");
+            Console.WriteLine("Г‚ГўГҐГ¤ГЁГІГҐ ГёГҐГ±ГІГЁГ§Г­Г Г·Г­Г®ГҐ Г·ГЁГ±Г«Г®: ");
             int busTicket;
             bool tryParse = Int32.TryParse(Console.ReadLine(), out busTicket);
 
             string checkTicket = busTicket.ToString();
             if (checkTicket.Length != 6)
             {
-                Console.WriteLine("Вы ввели не шестизначное число.");
-                Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                Console.WriteLine("Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐ ГёГҐГ±ГІГЁГ§Г­Г Г·Г­Г®ГҐ Г·ГЁГ±Г«Г®.");
+                Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
                 Console.ReadLine();
             }
             else
@@ -68,14 +64,14 @@ namespace ConsoleApp1
                 int firstPart = hundredThousand + decadeThousand + pointThousand, secondPart = hundred + decade + point;
                 if (firstPart == secondPart)
                 {
-                    Console.WriteLine("Это счастливое число.");
-                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.WriteLine("ГќГІГ® Г±Г·Г Г±ГІГ«ГЁГўГ®ГҐ Г·ГЁГ±Г«Г®.");
+                    Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
                     Console.ReadLine();
                 }
                 else
                 {
-                    Console.WriteLine("Это не счастливое число.");
-                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.WriteLine("ГќГІГ® Г­ГҐ Г±Г·Г Г±ГІГ«ГЁГўГ®ГҐ Г·ГЁГ±Г«Г®.");
+                    Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
                     Console.ReadLine();
                 }
             }
@@ -85,7 +81,7 @@ namespace ConsoleApp1
             for (; checkCycle;)
             {
                 Console.Clear();
-                Console.WriteLine("Введите один символ (введите точку для завершения работы программы): ");
+                Console.WriteLine("Г‚ГўГҐГ¤ГЁГІГҐ Г®Г¤ГЁГ­ Г±ГЁГ¬ГўГ®Г« (ГўГўГҐГ¤ГЁГІГҐ ГІГ®Г·ГЄГі Г¤Г«Гї Г§Г ГўГҐГ°ГёГҐГ­ГЁГї Г°Г ГЎГ®ГІГ» ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»): ");
                 string checkWord = Console.ReadLine();
                 byte[] wordAscii = Encoding.ASCII.GetBytes(checkWord);
 
@@ -93,8 +89,8 @@ namespace ConsoleApp1
                 {
                     wordAscii[0] += 32;
                     checkWord = Encoding.ASCII.GetString(wordAscii);
-                    Console.WriteLine("Преобразованная буква - " + checkWord);
-                    Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                    Console.WriteLine("ГЏГ°ГҐГ®ГЎГ°Г Г§Г®ГўГ Г­Г­Г Гї ГЎГіГЄГўГ  - " + checkWord);
+                    Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
                     Console.ReadLine();
                 }
                 else
@@ -103,15 +99,15 @@ namespace ConsoleApp1
                     {
                         wordAscii[0] -= 32;
                         checkWord = Encoding.ASCII.GetString(wordAscii);
-                        Console.WriteLine("Преобразованная буква - " + checkWord);
-                        Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                        Console.WriteLine("ГЏГ°ГҐГ®ГЎГ°Г Г§Г®ГўГ Г­Г­Г Гї ГЎГіГЄГўГ  - " + checkWord);
+                        Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
                         Console.ReadLine();
                     }
                     else
                     {
                         if (wordAscii[0] == 46)
                         {
-                            Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+                            Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
                             checkCycle = false;
                             Console.ReadLine();
                         }
@@ -120,13 +116,13 @@ namespace ConsoleApp1
             }
 
             Console.Clear();
-            Console.WriteLine("Введите два числа (первое должно быть меньше второго): ");
+            Console.WriteLine("Г‚ГўГҐГ¤ГЁГІГҐ Г¤ГўГ  Г·ГЁГ±Г«Г  (ГЇГҐГ°ГўГ®ГҐ Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј Г¬ГҐГ­ГјГёГҐ ГўГІГ®Г°Г®ГЈГ®): ");
             int firstNumber, secondNumber;
             tryParse = Int32.TryParse(Console.ReadLine(), out firstNumber);
             tryParse = Int32.TryParse(Console.ReadLine(), out secondNumber);
             if (secondNumber < firstNumber)
             {
-                Console.WriteLine("Второе число должно быть больше первого.");
+                Console.WriteLine("Г‚ГІГ®Г°Г®ГҐ Г·ГЁГ±Г«Г® Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГЎГ®Г«ГјГёГҐ ГЇГҐГ°ГўГ®ГЈГ®.");
             }
             else
             {
@@ -139,11 +135,11 @@ namespace ConsoleApp1
                     Console.WriteLine();
                 }
             }
-            Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+            Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
             Console.ReadLine();
 
             Console.Clear();
-            Console.WriteLine("Введите число (оно должно быть больше 0): ");
+            Console.WriteLine("Г‚ГўГҐГ¤ГЁГІГҐ Г·ГЁГ±Г«Г® (Г®Г­Г® Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГЎГ®Г«ГјГёГҐ 0): ");
             int notReverseNumber;
             string reverseNumber="";
             tryParse = Int32.TryParse(Console.ReadLine(), out notReverseNumber);
@@ -157,7 +153,7 @@ namespace ConsoleApp1
             }
 
             Console.WriteLine(reverseNumber);
-            Console.WriteLine("Нажмите \"Enter\" чтобы продолжить работу программы...");
+            Console.WriteLine("ГЌГ Г¦Г¬ГЁГІГҐ \"Enter\" Г·ГІГ®ГЎГ» ГЇГ°Г®Г¤Г®Г«Г¦ГЁГІГј Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»...");
             Console.ReadLine();
         }
     }
