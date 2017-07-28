@@ -1,0 +1,161 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool checkForPoint = true;
+            int spaceCount = 0;
+
+            for (; checkForPoint;)
+            {
+                Console.Clear();
+                Console.WriteLine("Input one symbol (input \".\" for stop programm): ");
+                string checkWord = Console.ReadLine();
+
+                if (checkWord.Length > 1)
+                {
+                    Console.WriteLine("You should input only one symbol. Try again.");
+                    Console.WriteLine("Press \"Enter\" to continue...");
+                    Console.ReadLine();
+                    continue;
+                }
+
+                if (checkWord.Contains(" "))
+                {
+                    ++spaceCount;
+                }
+
+                if (checkWord.Contains("."))
+                {
+                    Console.WriteLine("You input " + spaceCount + " spaces.");
+                    Console.WriteLine("Press \"Enter\" to continue...");
+                    Console.ReadLine();
+                    checkForPoint = false;
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Input six numeral number: ");
+            int busTicket;
+            bool tryParse = Int32.TryParse(Console.ReadLine(), out busTicket);
+
+            string checkTicket = busTicket.ToString();
+            if (checkTicket.Length != 6)
+            {
+                Console.WriteLine("This number do not have six numeral.");
+                Console.WriteLine("Press \"Enter\" to continue...");
+                Console.ReadLine();
+            }
+            else
+            {
+                int hundredThousand = busTicket / 100000;
+                int decadeThousand = busTicket % 100000 / 10000;
+                int pointThousand = busTicket % 10000 / 1000;
+                int hundred = busTicket % 1000 / 100;
+                int decade = busTicket % 100 / 10;
+                int point = busTicket % 10;
+                int firstPart = hundredThousand + decadeThousand + pointThousand, secondPart = hundred + decade + point;
+                if (firstPart == secondPart)
+                {
+                    Console.WriteLine("This number is lucky");
+                    Console.WriteLine("Press \"Enter\" to continue...");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("This number is not lucky");
+                    Console.WriteLine("Press \"Enter\" to continue...");
+                    Console.ReadLine();
+                }
+            }
+
+            Console.Clear();
+            bool checkCycle = true;
+            for (; checkCycle;)
+            {
+                Console.Clear();
+                Console.WriteLine("Input one symbol (input \".\" for stop programm): ");
+                string checkWord = Console.ReadLine();
+                byte[] wordAscii = Encoding.ASCII.GetBytes(checkWord);
+
+                if (wordAscii[0] >= 65 && wordAscii[0] <= 90)
+                {
+                    wordAscii[0] += 32;
+                    checkWord = Encoding.ASCII.GetString(wordAscii);
+                    Console.WriteLine("New symbol is - " + checkWord);
+                    Console.WriteLine("Press \"Enter\" to continue...");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    if (wordAscii[0] > 90 && wordAscii[0] <= 122)
+                    {
+                        wordAscii[0] -= 32;
+                        checkWord = Encoding.ASCII.GetString(wordAscii);
+                        Console.WriteLine("New symbol is - " + checkWord);
+                        Console.WriteLine("Press \"Enter\" to continue...");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        if (wordAscii[0] == 46)
+                        {
+                            Console.WriteLine("Press \"Enter\" to continue...");
+                            checkCycle = false;
+                            Console.ReadLine();
+                        }
+                    }
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Input two number (first should be less than second): ");
+            int firstNumber, secondNumber;
+            tryParse = Int32.TryParse(Console.ReadLine(), out firstNumber);
+            tryParse = Int32.TryParse(Console.ReadLine(), out secondNumber);
+            if (secondNumber < firstNumber)
+            {
+                Console.WriteLine("Second number should be bigger than first");
+            }
+            else
+            {
+                for (int i = firstNumber; i <= secondNumber; ++i)
+                {
+                    for (int j = 0; j < i; ++j)
+                    {
+                        Console.Write(i + " ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine("Press \"Enter\" to continue...");
+            Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("Input number (it should be bigger than 0): ");
+            int notReverseNumber;
+            string reverseNumber="";
+            tryParse = Int32.TryParse(Console.ReadLine(), out notReverseNumber);
+
+            string reverseNumberLength = notReverseNumber.ToString();
+
+            for(int i=0;i<reverseNumberLength.Length;++i)
+            {
+                reverseNumber += notReverseNumber % 10;
+                notReverseNumber /= 10;
+            }
+
+            Console.WriteLine(reverseNumber);
+            Console.WriteLine("Press \"Enter\" to continue...");
+            Console.ReadLine();
+        }
+    }
+}
