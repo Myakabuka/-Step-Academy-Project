@@ -1,0 +1,7 @@
+C:\Users\БейсембаевА\Documents\Visual Studio 2017\Projects\HomeWork - Serialization\HomeWork - Serialization\bin\Debug\HomeWork - Serialization.exe.config
+C:\Users\БейсембаевА\Documents\Visual Studio 2017\Projects\HomeWork - Serialization\HomeWork - Serialization\bin\Debug\HomeWork - Serialization.exe
+C:\Users\БейсембаевА\Documents\Visual Studio 2017\Projects\HomeWork - Serialization\HomeWork - Serialization\bin\Debug\HomeWork - Serialization.pdb
+C:\Users\БейсембаевА\Documents\Visual Studio 2017\Projects\HomeWork - Serialization\HomeWork - Serialization\obj\Debug\HomeWork - Serialization.csprojResolveAssemblyReference.cache
+C:\Users\БейсембаевА\Documents\Visual Studio 2017\Projects\HomeWork - Serialization\HomeWork - Serialization\obj\Debug\HomeWork - Serialization.csproj.CoreCompileInputs.cache
+C:\Users\БейсембаевА\Documents\Visual Studio 2017\Projects\HomeWork - Serialization\HomeWork - Serialization\obj\Debug\HomeWork - Serialization.exe
+C:\Users\БейсембаевА\Documents\Visual Studio 2017\Projects\HomeWork - Serialization\HomeWork - Serialization\obj\Debug\HomeWork - Serialization.pdb
